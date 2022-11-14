@@ -37,14 +37,12 @@ header {
 }
 
 .bylooks {
-    width: 170px;
-    height: 110px;
     margin-left: 50px;
 }
 
 .navlist {
     display: flex;
-    margin-left: 100px;
+    margin-left: 60px;
     margin-top: 20px;
     margin-right: 10px;
 }
