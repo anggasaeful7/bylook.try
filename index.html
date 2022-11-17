@@ -10,6 +10,44 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&display=swap" rel="stylesheet">
+
+        <!-- Script -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.16/dist/sweetalert2.all.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#contact-form').submit(function (e) {
+                    const form = document.querySelector('form[id="contact-form"]');
+                    const username = form.elements['nama'].value;
+                    const userMail = form.elements['email'].value;
+                    const nokontak = form.elements['nokontak'].value;
+                    const message = form.elements['pesan'].value;
+
+                    e.preventDefault();
+                    var data = {
+                        service_id: 'service_va75jbh',
+                        template_id: 'template_hu7axqa',
+                        user_id: 'qMWac_IOT0sfxEFKP',
+                        template_params: {
+                            user_name: username,
+                            user_email: userMail,
+                            nokontak: nokontak,
+                            message: message
+                        }
+                    };
+                    $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
+                        type: 'POST',
+                        data: JSON.stringify(data),
+                        contentType: 'application/json'
+                    }).done(function() {
+                        Swal.fire("Email Terkirim");
+                    }).fail(function(error) {
+                        alert('Oops… ' + JSON.stringify(error));
+                    })
+                })
+            })
+        </script>
     </head>
     <body>
         <header>
@@ -56,7 +94,7 @@
                     <span>PROYEK KAMI</span>
                     <h2>INOVASI KAMI</h2>
             </div>
-            </section>
+        </section>
         <section class="container-card" style="background: url(&quot;assets/image/Frame%203.png&quot;)">
             <div class="card">
                 <img class="card-img" src="./assets/image/3.png" alt="3" style="width:100%">
@@ -119,7 +157,7 @@
                             style="color: #605FA8;"></i>  bylookstay@gmail.com</a></p>
             </div>
             <div class="container-form" style="margin-top: 80px;">
-                <form action="">
+                <form id="contact-form">
                     <div class="row">
                         <div class="col-75">
                         <input type="text" id="nama" name="nama" placeholder="Nama Lengkap">
@@ -135,8 +173,8 @@
                             style="height:200px"></textarea>
                     </div>
                     <br>
-                    <div class="row" id="buttonEmail">
-                        
+                    <div class="row">
+                        <input type="submit" value="Kirim pesan" class="btn-konsul">
                     </div>
                 </form>
             </div>
@@ -188,5 +226,4 @@
             (i=0; i < dots.length; i++) { dots[i].className=dots[i].className.replace(" active", "" ); }
             slides[slideIndex-1].style.display="block" ; dots[slideIndex-1].className +=" active" ; }
     </script>
-    <script src="js/email.js"></script>
 </html>
