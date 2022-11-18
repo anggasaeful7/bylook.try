@@ -356,13 +356,14 @@ input[type=text], select, textarea {
 }
 
 .btn-konsul{
-    width: 400px;
+    width: 600px;
     height: 35px;
     border-radius: 8px;
     color: white;
     background-color: #605FA8;
     border: none;
     margin-right: 100px;
+    padding: 10px;
 }
 
 .btn-konsul:hover{

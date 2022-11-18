@@ -10,6 +10,46 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&display=swap" rel="stylesheet">
+
+        <!-- Script -->
+        <script
+            type="text/javascript">window.$crisp = []; window.CRISP_WEBSITE_ID = "44c0da35-3993-47a3-b095-b943629b565e"; (function () { d = document; s = d.createElement("script"); s.src = "https://client.crisp.chat/l.js"; s.async = 1; d.getElementsByTagName("head")[0].appendChild(s); })();</script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.16/dist/sweetalert2.all.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#contact-form').submit(function (e) {
+                    const form = document.querySelector('form[id="contact-form"]');
+                    const username = form.elements['nama'].value;
+                    const userMail = form.elements['email'].value;
+                    const nokontak = form.elements['nokontak'].value;
+                    const message = form.elements['pesan'].value;
+
+                    e.preventDefault();
+                    var data = {
+                        service_id: 'service_va75jbh',
+                        template_id: 'template_hu7axqa',
+                        user_id: 'qMWac_IOT0sfxEFKP',
+                        template_params: {
+                            user_name: username,
+                            user_email: userMail,
+                            nokontak: nokontak,
+                            message: message
+                        }
+                    };
+                    $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
+                        type: 'POST',
+                        data: JSON.stringify(data),
+                        contentType: 'application/json'
+                    }).done(function() {
+                        Swal.fire("Email Terkirim");
+                    }).fail(function(error) {
+                        alert('Oops… ' + JSON.stringify(error));
+                    })
+                })
+            })
+        </script>
     </head>
     <body>
         <header>
@@ -21,8 +61,10 @@
                 <li><a href="index.html">HOME</a></li>
                 <li><a href="about.html">TENTANG KAMI</a></li>
                 <li><a href="project.html">LAYANAN KAMI</a></li>
+
                 <li><a href="profil.html">PROFIL</a></li>
                 <li><a href="https://api.whatsapp.com/send?phone=6282118161569&text=Hi,%20Bylook.Stay.%0ASaya%20tertarik%20untuk%20membeli%20jasa%20Anda.%0ABoleh%20tanya-tanya%20dulu?"><i class='bx bx-phone'></i>+62 1234 1234</a></li>
+
             </ul>
             <button class="contact"><a href="https://api.whatsapp.com/send?phone=6282118161569&text=Hi,%20Bylook.Stay.%0ASaya%20tertarik%20untuk%20membeli%20jasa%20Anda.%0ABoleh%20tanya-tanya%20dulu?" class="btn-contact">HUBUNGI</a></button>
         </header>
@@ -56,7 +98,7 @@
                     <span>PROYEK KAMI</span>
                     <h2>INOVASI KAMI</h2>
             </div>
-            </section>
+        </section>
         <section class="container-card" style="background: url(&quot;assets/image/Frame%203.png&quot;)">
             <div class="card">
                 <img class="card-img" src="./assets/image/3.png" alt="3" style="width:100%">
@@ -119,16 +161,16 @@
                             style="color: #605FA8;"></i>  bylookstay@gmail.com</a></p>
             </div>
             <div class="container-form" style="margin-top: 80px;">
-                <form action="">
+                <form id="contact-form">
                     <div class="row">
                         <div class="col-75">
                         <input type="text" id="nama" name="nama" placeholder="Nama Lengkap">
                     </div>
                     <div class="row">
-                        <input type="text" id="daerah" name="daerah" placeholder="Daerah">
+                        <input type="text" id="email" name="email" placeholder="email">
                     </div>
                     <div class="row">
-                        <input type="text" id="nokontak" name="nokontak" placeholder="Nomor Kontak">
+                        <input type="text" id="no" name="nokontak" placeholder="Nomor Kontak">
                     </div>
                     <div class="row">
                         <textarea id="pesan" name="pesan" placeholder="Tulis Pesan"
@@ -136,7 +178,7 @@
                     </div>
                     <br>
                     <div class="row">
-                        <input type="submit" class="btn-konsul" value="Kirim Pesan">
+                        <input type="submit" value="Kirim pesan" class="btn-konsul">
                     </div>
                 </form>
             </div>
