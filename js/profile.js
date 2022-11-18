@@ -1,6 +1,8 @@
 function fetchprofile() {
   var email = localStorage.getItem("user");
 
+  document.getElementById("email").value = email;
+
   const xhttp = new XMLHttpRequest();
   xhttp.open(
     "GET",
@@ -16,7 +18,6 @@ function fetchprofile() {
       var progress = data[0].progress;
 
       document.getElementById("nama").value = nama;
-      document.getElementById("email").value = email;
       document.getElementById("progress").value = progress;
     }
   };
