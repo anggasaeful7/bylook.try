@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald&amp;display=swap">
     <link rel="stylesheet" href="assets/css/Hero-Clean-images.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+
+    <script
+        type="text/javascript">window.$crisp = []; window.CRISP_WEBSITE_ID = "44c0da35-3993-47a3-b095-b943629b565e"; (function () { d = document; s = d.createElement("script"); s.src = "https://client.crisp.chat/l.js"; s.async = 1; d.getElementsByTagName("head")[0].appendChild(s); })();</script>
 </head>
 
 <body>
@@ -33,9 +36,7 @@
                     href="https://api.whatsapp.com/send?phone=6282118161569&text=Hi,%20Bylook.Stay.%0ASaya%20tertarik%20untuk%20membeli%20jasa%20Anda.%0ABoleh%20tanya-tanya%20dulu?"><i
                         class='bx bx-phone'></i>+62 1234 1234</a></li>
         </ul>
-        <button class="contact"><a
-                href="https://api.whatsapp.com/send?phone=6282118161569&text=Hi,%20Bylook.Stay.%0ASaya%20tertarik%20untuk%20membeli%20jasa%20Anda.%0ABoleh%20tanya-tanya%20dulu?"
-                class="btn-contact">HUBUNGI</a></button>
+        <button class="contact"><a href="login.html" class="btn-contact">Get Started</a></button>
     </header>
 
     <section class="home" id="home" style="background: url(&quot;assets/image/Frame%202.png&quot;)">
@@ -64,13 +65,13 @@
 
                     <div class="row mt-3">
                         <div class="col-md-12"><label class="labels">Nama</label>
-                            <input type="text" class="form-control" placeholder="Nama anda" value="" disabled>
+                            <input type="text" class="form-control" id="nama" value="" disabled>
                         </div>
                         <div class="col-md-12"><label class="labels">Email</label>
-                            <input type="text" class="form-control" placeholder="Email anda" value="" disabled>
+                            <input type="text" class="form-control" id="email" value="" disabled>
                         </div>
                         <div class="col-md-12"><label class="labels">Progress</label>
-                            <input type="text" class="form-control" placeholder="Progress pengerjaan" value="" disabled>
+                            <input type="text" class="form-control" id="progress" value="" disabled>
                         </div>
                     </div>
                 </div>
@@ -105,6 +106,8 @@
     <footer>
         <p>All Right Reserved | ByLook Stay 2022</p>
     </footer>
+    <script src="js/cekUser.js"></script>
+    <script src="js/profile.js"></script>
 </body>
 
 </html>
